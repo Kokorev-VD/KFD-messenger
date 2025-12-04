@@ -1,0 +1,12 @@
+ktor:
+  application:
+    modules:
+      - dev.kokorev.ApplicationKt.module
+  deployment:
+    port: 8080
+
+datasource:
+  url: jdbc:h2:file:/KFD-messenger
+  driver: org.h2.Driver
+  user: root
+  password: ""
