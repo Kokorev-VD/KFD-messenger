@@ -1,4 +1,4 @@
-package dev.kokorev.handler
+package dev.kokorev.controller.handler
 
 import io.ktor.server.routing.RoutingCall
 

@@ -1,10 +1,10 @@
 package dev.kokorev.service
 
 import com.auth0.jwt.JWTVerifier
+import dev.kokorev.model.common.UserPrincipal
 import dev.kokorev.model.rq.AuthRequest
 import dev.kokorev.model.rs.TokenResponse
 import io.ktor.server.auth.jwt.JWTCredential
-import io.ktor.server.auth.jwt.JWTPrincipal
 
 interface AuthService {
     suspend fun login(rq: AuthRequest): TokenResponse
@@ -13,5 +13,5 @@ interface AuthService {
 
     fun verifier(): JWTVerifier
 
-    fun validate(credential: JWTCredential): JWTPrincipal
+    fun validate(credential: JWTCredential): UserPrincipal
 }

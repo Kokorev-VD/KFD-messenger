@@ -2,14 +2,13 @@ package dev.kokorev.plugin
 
 import dev.kokorev.model.exception.UnauthorizedException
 import dev.kokorev.service.AuthService
-import dev.kokorev.service.impl.AuthServiceImpl
-import io.ktor.server.application.Application
-import io.ktor.server.application.install
-import io.ktor.server.auth.Authentication
-import io.ktor.server.auth.jwt.jwt
+import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
+import org.koin.ktor.ext.inject
 
 fun Application.configureAuth() {
-    val authService: AuthService = AuthServiceImpl()
+    val authService: AuthService by inject<AuthService>()
     install(Authentication) {
         jwt("jwt-auth") {
             verifier { authService.verifier() }

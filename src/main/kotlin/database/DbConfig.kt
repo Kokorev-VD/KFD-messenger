@@ -1,5 +1,6 @@
 package dev.kokorev.database
 
+import dev.kokorev.database.table.Messages
 import dev.kokorev.database.tables.Users
 import io.ktor.server.application.Application
 import org.jetbrains.exposed.sql.Database
@@ -23,6 +24,7 @@ fun configureDatabase(application: Application): Database {
 
     transaction(db) {
         SchemaUtils.create(Users)
+        SchemaUtils.create(Messages)
     }
 
     return db
